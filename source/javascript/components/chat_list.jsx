@@ -12,8 +12,9 @@ var ChatList = React.createClass({
   render: function() {
     return (
       <div id="chat-list">
-        { this.props.messages.map(function(msg) {
-          return <ChatMessage key={ msg.id } message={ msg }/>
+        { this.props.messages.map(function(msg, idx) {
+          // Ok to use idx here because Firebase guarantees consistent ordering
+          return <ChatMessage key={ idx } message={ msg }/>
         }) }
       </div>
     );
