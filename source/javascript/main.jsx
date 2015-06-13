@@ -1,8 +1,8 @@
 var React = require('react');
 
-var ChatList = require('./components/chat_list.jsx');
+var Chat = require('./views/chat.jsx');
 
 React.render(
-  <ChatList messages={ [ { sender: 'James K. Polk', content: 'This Internet thing sure is nifty.', id: 'asdf' } ] }/>,
+  <Chat/>,
   document.getElementById('react-entry-point')
 );
