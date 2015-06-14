@@ -4,7 +4,7 @@ var ChatMessage = React.createClass({
   propTypes: {
     message: React.PropTypes.shape({
       sender: React.PropTypes.string.isRequired,
-      content: React.PropTypes.string.isRequired
+      contents: React.PropTypes.arrayOf(React.PropTypes.string).isRequired
     }).isRequired
   },
 
@@ -12,7 +12,15 @@ var ChatMessage = React.createClass({
     return (
       <div className="chat-message">
         <div className="chat-message-sender">{ this.props.message.sender }</div>
-        <div className="chat-message-content">{ this.props.message.content }</div>
+        <div className="chat-meta-message-contents">
+          { this.props.message.contents.map(function(content, idx) {
+            return (
+              <div key={idx} className="chat-message-content">
+                { content }
+              </div>
+            )
+          }) }
+        </div>
       </div>
     );
   }

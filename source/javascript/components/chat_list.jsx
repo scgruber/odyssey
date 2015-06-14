@@ -1,6 +1,7 @@
 var React = require('react');
 
 var ChatMessage = require('./chat_message.jsx');
+var MetaMessage = require('../lib/meta_message.js');
 
 var ChatList = React.createClass({
   propTypes: {
@@ -10,9 +11,10 @@ var ChatList = React.createClass({
   },
 
   render: function() {
+    var messages = MetaMessage.collapse(this.props.messages);
     return (
       <div id="chat-list">
-        { this.props.messages.map(function(msg, idx) {
+        { messages.map(function(msg, idx) {
           // Ok to use idx here because Firebase guarantees consistent ordering
           return <ChatMessage key={ idx } message={ msg }/>
         }) }
