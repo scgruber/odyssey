@@ -20,6 +20,10 @@ module.exports = function (grunt)
       html: {
         files: ['source/index.html'],
         tasks: ['copy:index']
+      },
+      sass: {
+        files: ['source/css/**/*.scss'],
+        tasks: ['sass']
       }
     },
 
@@ -40,6 +44,14 @@ module.exports = function (grunt)
         src: 'source/index.html',
         dest: 'build/index.html'
       }
+    },
+
+    sass: {
+      build: {
+        files: {
+          'build/main.css': 'source/css/main.scss'
+        }
+      }
     }
   });
 
@@ -47,7 +59,8 @@ module.exports = function (grunt)
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
-  grunt.registerTask('build', ['browserify', 'copy']);
+  grunt.registerTask('build', ['browserify', 'copy', 'sass']);
   grunt.registerTask('default', ['connect', 'build', 'watch']);
 };

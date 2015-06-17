@@ -1,0 +1,16 @@
+.chat-message {
+  display: flex;
+  padding: 0.25rem 0;
+}
+
+.chat-message-sender {
+  width: 10rem;
+}
+
+.chat-meta-message-contents {
+  flex: 1;
+}
+
+.chat-message-content {
+  padding: 0.1rem 0;
+}
