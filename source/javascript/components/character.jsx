@@ -8,6 +8,13 @@ var Character = React.createClass({
         <div className="character-desc">{ this.props.character.desc }</div>
         <section className="character-aspects">
           <header>Aspects</header>
+          <ul>
+            { this.props.character.aspects.map(function(aspect) {
+              return (
+                <li key={ aspect }>{ aspect }</li>
+              );
+            }) }
+          </ul>
         </section>
         <section className="character-skills">
           <header>Skills</header>
