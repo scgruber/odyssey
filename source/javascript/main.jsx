@@ -1,8 +1,8 @@
 var React = require('react');
 
-var Chat = require('./views/chat.jsx');
+var Root = require('./views/root.jsx');
 
 React.render(
-  <Chat/>,
+  <Root/>,
   document.getElementById('react-entry-point')
 );
